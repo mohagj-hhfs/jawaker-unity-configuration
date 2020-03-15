@@ -1,0 +1,6 @@
+[book]
+authors = ["Hamzeh Sharawi"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Jawaker Unity Configuration"
