@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>CLI Tools - Jawaker Unity Configuration</title>
+        <title>Git LFS - Jawaker Unity Configuration</title>
         
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -81,7 +81,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div id="sidebar-scrollbox" class="sidebar-scrollbox">
-                <ol class="chapter"><li class="expanded "><a href="../index.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li class="expanded "><a href="../cli/index.html" class="active"><strong aria-hidden="true">2.</strong> CLI Tools</a></li><li><ol class="section"><li class="expanded "><a href="../cli/TERMINAL.html"><strong aria-hidden="true">2.1.</strong> Terminal App</a></li><li class="expanded "><a href="../cli/GIT.html"><strong aria-hidden="true">2.2.</strong> Git &amp; Github</a></li><li class="expanded "><a href="../cli/brew.html"><strong aria-hidden="true">2.3.</strong> Brew</a></li><li class="expanded "><a href="../cli/ruby.html"><strong aria-hidden="true">2.4.</strong> Ruby &amp; Rbenv</a></li><li class="expanded "><a href="../cli/lfs.html"><strong aria-hidden="true">2.5.</strong> Git LFS</a></li><li class="expanded "><a href="../cli/android.html"><strong aria-hidden="true">2.6.</strong> Android</a></li></ol></li></ol>
+                <ol class="chapter"><li class="expanded "><a href="../index.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li class="expanded "><a href="../cli/index.html"><strong aria-hidden="true">2.</strong> CLI Tools</a></li><li><ol class="section"><li class="expanded "><a href="../cli/TERMINAL.html"><strong aria-hidden="true">2.1.</strong> Terminal App</a></li><li class="expanded "><a href="../cli/GIT.html"><strong aria-hidden="true">2.2.</strong> Git &amp; Github</a></li><li class="expanded "><a href="../cli/brew.html"><strong aria-hidden="true">2.3.</strong> Brew</a></li><li class="expanded "><a href="../cli/ruby.html"><strong aria-hidden="true">2.4.</strong> Ruby &amp; Rbenv</a></li><li class="expanded "><a href="../cli/lfs.html" class="active"><strong aria-hidden="true">2.5.</strong> Git LFS</a></li><li class="expanded "><a href="../cli/android.html"><strong aria-hidden="true">2.6.</strong> Android</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -148,21 +148,28 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#cli-tools" id="cli-tools">CLI TOOLS</a></h1>
-<p>Here you will find all the info about every cli tool you're going to need - and why</p>
+                        <h1><a class="header" href="#git-lfs" id="git-lfs">Git LFS</a></h1>
+<p>Git LFS(Large File System) is an extension on git that allows it to deal with files larger than 100MB in size - and we have a couple of them in the repo.
+To install:</p>
+<pre><code class="language-bash">brew install git-lfs
+</code></pre>
+<p>and to make sure its installed correctly:</p>
+<pre><code class="language-bash">git lfs install
+</code></pre>
+<p>it should output a message that its initialized</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="../index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../cli/ruby.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="../cli/TERMINAL.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../cli/android.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -174,13 +181,13 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="../index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a href="../cli/ruby.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a href="../cli/TERMINAL.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a href="../cli/android.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
@@ -188,6 +195,21 @@
 
         </div>
 
+        
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3001");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload(true); // force reload from server (not from cache)
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
         
 
         

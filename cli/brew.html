@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Ruby &amp; Rbenv - Jawaker Unity Configuration</title>
+        <title>Brew - Jawaker Unity Configuration</title>
         
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -81,7 +81,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div id="sidebar-scrollbox" class="sidebar-scrollbox">
-                <ol class="chapter"><li class="expanded "><a href="../index.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li class="expanded "><a href="../cli/index.html"><strong aria-hidden="true">2.</strong> CLI Tools</a></li><li><ol class="section"><li class="expanded "><a href="../cli/TERMINAL.html"><strong aria-hidden="true">2.1.</strong> Terminal App</a></li><li class="expanded "><a href="../cli/GIT.html"><strong aria-hidden="true">2.2.</strong> Git &amp; Github</a></li><li class="expanded "><a href="../cli/brew.html"><strong aria-hidden="true">2.3.</strong> Brew</a></li><li class="expanded "><a href="../cli/ruby.html" class="active"><strong aria-hidden="true">2.4.</strong> Ruby &amp; Rbenv</a></li><li class="expanded "><a href="../cli/lfs.html"><strong aria-hidden="true">2.5.</strong> Git LFS</a></li><li class="expanded "><a href="../cli/android.html"><strong aria-hidden="true">2.6.</strong> Android</a></li></ol></li></ol>
+                <ol class="chapter"><li class="expanded "><a href="../index.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li class="expanded "><a href="../cli/index.html"><strong aria-hidden="true">2.</strong> CLI Tools</a></li><li><ol class="section"><li class="expanded "><a href="../cli/TERMINAL.html"><strong aria-hidden="true">2.1.</strong> Terminal App</a></li><li class="expanded "><a href="../cli/GIT.html"><strong aria-hidden="true">2.2.</strong> Git &amp; Github</a></li><li class="expanded "><a href="../cli/brew.html" class="active"><strong aria-hidden="true">2.3.</strong> Brew</a></li><li class="expanded "><a href="../cli/ruby.html"><strong aria-hidden="true">2.4.</strong> Ruby &amp; Rbenv</a></li><li class="expanded "><a href="../cli/lfs.html"><strong aria-hidden="true">2.5.</strong> Git LFS</a></li><li class="expanded "><a href="../cli/android.html"><strong aria-hidden="true">2.6.</strong> Android</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -148,22 +148,9 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#ruby" id="ruby">Ruby</a></h1>
-<p>Ruby is general purpose scripting language. Although we're going to do any development using ruby, we still need it to power some of the tools we'll be using along Unity</p>
-<h1><a class="header" href="#rbenv" id="rbenv">Rbenv</a></h1>
-<p>Rbenv is a tool that makes managing ruby versions between projects easy, and saves lots of the overhead with dealing with all its ecosystem. 
-To install rbenv:</p>
-<pre><code class="language-bash">brew install rbenv
-</code></pre>
-<p>And then, if you don't have a .bash_profile then create one</p>
-<pre><code class="language-bash">cd
-touch .bash_profile
-</code></pre>
-<p>and then open the .bash_profile and put this in it:</p>
-<pre><code>eval &quot;$(rbenv init -)&quot;
-</code></pre>
-<p>and then in the terminal:</p>
-<pre><code class="language-bash">source ~/.bash_profile
+                        <h1><a class="header" href="#homebrew" id="homebrew">Homebrew</a></h1>
+<p><a href="https://brew.sh/">Homebrew</a> is a package manager for MacOS - it will help us in managing many of the other cli tools we're going to use</p>
+<pre><code class="language-bash">/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)&quot;
 </code></pre>
 
                     </main>
@@ -171,13 +158,13 @@ touch .bash_profile
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="../cli/brew.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../cli/GIT.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="../cli/lfs.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../cli/ruby.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -189,13 +176,13 @@ touch .bash_profile
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="../cli/brew.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a href="../cli/GIT.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a href="../cli/lfs.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a href="../cli/ruby.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
@@ -203,6 +190,21 @@ touch .bash_profile
 
         </div>
 
+        
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3001");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload(true); // force reload from server (not from cache)
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
         
 
         
