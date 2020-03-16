@@ -1,3 +1,5 @@
+- Ignore this section if you're not going to export iOS builds for now
+
 # Ruby
 
 Ruby is general purpose scripting language. Although we're going to do any development using ruby, we still need it to power some of the tools we'll be using along Unity
