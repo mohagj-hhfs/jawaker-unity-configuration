@@ -4,6 +4,3 @@ language = "en"
 multilingual = false
 src = "src"
 title = "Jawaker Unity Configuration"
-
-[build]
-build-dir = "docs"
