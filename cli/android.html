@@ -81,7 +81,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div id="sidebar-scrollbox" class="sidebar-scrollbox">
-                <ol class="chapter"><li class="expanded "><a href="../index.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li class="expanded "><a href="../cli/index.html"><strong aria-hidden="true">2.</strong> CLI Tools</a></li><li><ol class="section"><li class="expanded "><a href="../cli/TERMINAL.html"><strong aria-hidden="true">2.1.</strong> Terminal App</a></li><li class="expanded "><a href="../cli/GIT.html"><strong aria-hidden="true">2.2.</strong> Git &amp; Github</a></li><li class="expanded "><a href="../cli/brew.html"><strong aria-hidden="true">2.3.</strong> Brew</a></li><li class="expanded "><a href="../cli/ruby.html"><strong aria-hidden="true">2.4.</strong> Ruby &amp; Rbenv</a></li><li class="expanded "><a href="../cli/lfs.html"><strong aria-hidden="true">2.5.</strong> Git LFS</a></li><li class="expanded "><a href="../cli/android.html" class="active"><strong aria-hidden="true">2.6.</strong> Android</a></li></ol></li></ol>
+                <ol class="chapter"><li class="expanded "><a href="../index.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li class="expanded "><a href="../cli/index.html"><strong aria-hidden="true">2.</strong> CLI Tools</a></li><li><ol class="section"><li class="expanded "><a href="../cli/terminal.html"><strong aria-hidden="true">2.1.</strong> Terminal App</a></li><li class="expanded "><a href="../cli/git.html"><strong aria-hidden="true">2.2.</strong> Git &amp; Github</a></li><li class="expanded "><a href="../cli/brew.html"><strong aria-hidden="true">2.3.</strong> Brew</a></li><li class="expanded "><a href="../cli/ruby.html"><strong aria-hidden="true">2.4.</strong> Ruby &amp; Rbenv</a></li><li class="expanded "><a href="../cli/lfs.html"><strong aria-hidden="true">2.5.</strong> Git LFS</a></li><li class="expanded "><a href="../cli/android.html" class="active"><strong aria-hidden="true">2.6.</strong> Android</a></li><li class="expanded "><a href="../cli/fastlane.html"><strong aria-hidden="true">2.7.</strong> Fastlane</a></li></ol></li><li class="expanded "><a href="../unity/index.html"><strong aria-hidden="true">3.</strong> Unity</a></li><li><ol class="section"><li class="expanded "><a href="../unity/hub.html"><strong aria-hidden="true">3.1.</strong> Unity Hub</a></li><li class="expanded "><a href="../unity/xcode.html"><strong aria-hidden="true">3.2.</strong> Xcode</a></li><li class="expanded "><a href="../unity/vscode.html"><strong aria-hidden="true">3.3.</strong> VSCode</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -149,9 +149,38 @@
                 <div id="content" class="content">
                     <main>
                         <h1><a class="header" href="#android-setup" id="android-setup">Android Setup</a></h1>
+<h2><a class="header" href="#android-sdk" id="android-sdk">Android SDK</a></h2>
 <p>In order to be able to build APKs from our project, we need to have the android sdk installed:</p>
 <pre><code class="language-bash">brew cask install android-sdk
+brew cask info android-sdk # You will see the path in which the sdk is installed (copy it)
 </code></pre>
+<p>Then we'll have to link to our ~/.bash_profile, open it and paste the following code:</p>
+<pre><code class="language-bash">export ANDROID_HOME=/usr/local/Caskroom/android-sdk/3859397 # Here paste the path you got from the previous step
+export PATH=$ANDROID_HOME/tools:$PATH
+export PATH=$ANDROID_HOME/platform-tools:$PATH
+</code></pre>
+<p>Then we have to install the API level 28 build tools</p>
+<pre><code class="language-bash">yes | sdkmanager &quot;build-tools;28.0.3&quot; &quot;extras;android;m2repository&quot; &quot;extras;google;google_play_services&quot; &quot;extras;google;m2repository&quot; &quot;platforms;android-28&quot; &quot;platform-tools&quot;
+</code></pre>
+<h2><a class="header" href="#sdkman" id="sdkman">SDKMAN</a></h2>
+<p>SDKMAN is a package manager for alot of sdks, and we'll use it to install a couple of tools we need</p>
+<pre><code class="language-bash">curl -s &quot;https://get.sdkman.io&quot; | bash # Follow the instruction it will give you
+source &quot;$HOME/.sdkman/bin/sdkman-init.sh&quot;
+</code></pre>
+<h2><a class="header" href="#gradle" id="gradle">Gradle</a></h2>
+<p>Gradle is the tool used to actually build our android project to an apk</p>
+<pre><code class="language-bash">sdk install gradle 4.6
+</code></pre>
+<h2><a class="header" href="#jdk" id="jdk">JDK</a></h2>
+<p>We need the jdk(java development kit) as well</p>
+<pre><code class="language-bash">sdk install java 8.0.242.j9-adpt
+</code></pre>
+<h2><a class="header" href="#android-ndk" id="android-ndk">Android NDK</a></h2>
+<p>Android NDK is required if we want to build our android apk using IL2CPP instead of mono(which we have to use when uploading to GooglePlay as we need 64-bit support).
+Download the ndk from <a href="https://developer.android.com/ndk/downloads/older_releases">here</a> and be sure to install the 16rb version</p>
+<ul>
+<li>If you have to build using IL2CPP on MacOS Catalina, it will fail because the 16rb version is not signed, follow the instructions <a href="https://www.imore.com/how-open-apps-anywhere-macos-catalina-and-mojave">here</a> to overcome this</li>
+</ul>
 
                     </main>
 
@@ -163,6 +192,10 @@
                             </a>
                         
 
+                        
+                            <a rel="next" href="../cli/fastlane.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
                         
 
                         <div style="clear: both"></div>
@@ -178,25 +211,14 @@
                 
 
                 
+                    <a href="../cli/fastlane.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
             </nav>
 
         </div>
 
-        
-        <!-- Livereload script (if served using the cli tool) -->
-        <script type="text/javascript">
-            var socket = new WebSocket("ws://localhost:3001");
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload(true); // force reload from server (not from cache)
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
         
 
         

@@ -83,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div id="sidebar-scrollbox" class="sidebar-scrollbox">
-                <ol class="chapter"><li class="expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li class="expanded "><a href="cli/index.html"><strong aria-hidden="true">2.</strong> CLI Tools</a></li><li><ol class="section"><li class="expanded "><a href="cli/TERMINAL.html"><strong aria-hidden="true">2.1.</strong> Terminal App</a></li><li class="expanded "><a href="cli/GIT.html"><strong aria-hidden="true">2.2.</strong> Git &amp; Github</a></li><li class="expanded "><a href="cli/brew.html"><strong aria-hidden="true">2.3.</strong> Brew</a></li><li class="expanded "><a href="cli/ruby.html"><strong aria-hidden="true">2.4.</strong> Ruby &amp; Rbenv</a></li><li class="expanded "><a href="cli/lfs.html"><strong aria-hidden="true">2.5.</strong> Git LFS</a></li><li class="expanded "><a href="cli/android.html"><strong aria-hidden="true">2.6.</strong> Android</a></li></ol></li></ol>
+                <ol class="chapter"><li class="expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li class="expanded "><a href="cli/index.html"><strong aria-hidden="true">2.</strong> CLI Tools</a></li><li><ol class="section"><li class="expanded "><a href="cli/terminal.html"><strong aria-hidden="true">2.1.</strong> Terminal App</a></li><li class="expanded "><a href="cli/git.html"><strong aria-hidden="true">2.2.</strong> Git &amp; Github</a></li><li class="expanded "><a href="cli/brew.html"><strong aria-hidden="true">2.3.</strong> Brew</a></li><li class="expanded "><a href="cli/ruby.html"><strong aria-hidden="true">2.4.</strong> Ruby &amp; Rbenv</a></li><li class="expanded "><a href="cli/lfs.html"><strong aria-hidden="true">2.5.</strong> Git LFS</a></li><li class="expanded "><a href="cli/android.html"><strong aria-hidden="true">2.6.</strong> Android</a></li><li class="expanded "><a href="cli/fastlane.html"><strong aria-hidden="true">2.7.</strong> Fastlane</a></li></ol></li><li class="expanded "><a href="unity/index.html"><strong aria-hidden="true">3.</strong> Unity</a></li><li><ol class="section"><li class="expanded "><a href="unity/hub.html"><strong aria-hidden="true">3.1.</strong> Unity Hub</a></li><li class="expanded "><a href="unity/xcode.html"><strong aria-hidden="true">3.2.</strong> Xcode</a></li><li class="expanded "><a href="unity/vscode.html"><strong aria-hidden="true">3.3.</strong> VSCode</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -152,7 +152,7 @@
                     <main>
                         <h1><a class="header" href="#getting-started" id="getting-started">Getting Started</a></h1>
 <p>This mdbook is written in order to help you manuever your way through all the steps you need to get the best experience using Unity</p>
-<h1><a class="header" href="#cli-tools" id="cli-tools">CLI TOOLS</a></h1>
+<h1><a class="header" href="#cli-tools" id="cli-tools">CLI Tools</a></h1>
 <p>Here you will find all the info about every cli tool you're going to need - and why</p>
 <h1><a class="header" href="#terminal" id="terminal">TERMINAL</a></h1>
 <p>We use <a href="https://www.iterm2.com/">iTerm</a> as a terminal emulator - its much better than the terminal that comes with MacOS
@@ -187,6 +187,9 @@ git config --global user.email 'Your github email'
 <p><a href="https://brew.sh/">Homebrew</a> is a package manager for MacOS - it will help us in managing many of the other cli tools we're going to use</p>
 <pre><code class="language-bash">/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)&quot;
 </code></pre>
+<ul>
+<li>Ignore this section if you're not going to export iOS builds for now</li>
+</ul>
 <h1><a class="header" href="#ruby" id="ruby">Ruby</a></h1>
 <p>Ruby is general purpose scripting language. Although we're going to do any development using ruby, we still need it to power some of the tools we'll be using along Unity</p>
 <h1><a class="header" href="#rbenv" id="rbenv">Rbenv</a></h1>
@@ -214,8 +217,98 @@ To install:</p>
 </code></pre>
 <p>it should output a message that its initialized</p>
 <h1><a class="header" href="#android-setup" id="android-setup">Android Setup</a></h1>
+<h2><a class="header" href="#android-sdk" id="android-sdk">Android SDK</a></h2>
 <p>In order to be able to build APKs from our project, we need to have the android sdk installed:</p>
 <pre><code class="language-bash">brew cask install android-sdk
+brew cask info android-sdk # You will see the path in which the sdk is installed (copy it)
+</code></pre>
+<p>Then we'll have to link to our ~/.bash_profile, open it and paste the following code:</p>
+<pre><code class="language-bash">export ANDROID_HOME=/usr/local/Caskroom/android-sdk/3859397 # Here paste the path you got from the previous step
+export PATH=$ANDROID_HOME/tools:$PATH
+export PATH=$ANDROID_HOME/platform-tools:$PATH
+</code></pre>
+<p>Then we have to install the API level 28 build tools</p>
+<pre><code class="language-bash">yes | sdkmanager &quot;build-tools;28.0.3&quot; &quot;extras;android;m2repository&quot; &quot;extras;google;google_play_services&quot; &quot;extras;google;m2repository&quot; &quot;platforms;android-28&quot; &quot;platform-tools&quot;
+</code></pre>
+<h2><a class="header" href="#sdkman" id="sdkman">SDKMAN</a></h2>
+<p>SDKMAN is a package manager for alot of sdks, and we'll use it to install a couple of tools we need</p>
+<pre><code class="language-bash">curl -s &quot;https://get.sdkman.io&quot; | bash # Follow the instruction it will give you
+source &quot;$HOME/.sdkman/bin/sdkman-init.sh&quot;
+</code></pre>
+<h2><a class="header" href="#gradle" id="gradle">Gradle</a></h2>
+<p>Gradle is the tool used to actually build our android project to an apk</p>
+<pre><code class="language-bash">sdk install gradle 4.6
+</code></pre>
+<h2><a class="header" href="#jdk" id="jdk">JDK</a></h2>
+<p>We need the jdk(java development kit) as well</p>
+<pre><code class="language-bash">sdk install java 8.0.242.j9-adpt
+</code></pre>
+<h2><a class="header" href="#android-ndk" id="android-ndk">Android NDK</a></h2>
+<p>Android NDK is required if we want to build our android apk using IL2CPP instead of mono(which we have to use when uploading to GooglePlay as we need 64-bit support).
+Download the ndk from <a href="https://developer.android.com/ndk/downloads/older_releases">here</a> and be sure to install the 16rb version</p>
+<ul>
+<li>If you have to build using IL2CPP on MacOS Catalina, it will fail because the 16rb version is not signed, follow the instructions <a href="https://www.imore.com/how-open-apps-anywhere-macos-catalina-and-mojave">here</a> to overcome this</li>
+</ul>
+<ul>
+<li>Ignore this section if you're not going to export iOS builds for now</li>
+</ul>
+<h1><a class="header" href="#fastlane" id="fastlane">Fastlane</a></h1>
+<p><a href="https://fastlane.tools/">Fastlane</a> is a set of tools with the goal of automating all processes related to app development</p>
+<p>For now we only use <a href="https://docs.fastlane.tools/actions/match/">Match</a> which deals with iOS profiles and certificates.</p>
+<p>The fastlane/match configuration is already present the in repository you're working on, but before you can use it we have to install some stuff:
+Make sure you have ruby/rbenv configuration done correctly</p>
+<pre><code class="language-bash">cd path/to/repo
+rbenv install #make sure the ruby version required is installed
+gem install bundler -v &quot;$(grep -A 1 &quot;BUNDLED WITH&quot; Gemfile.lock | tail -n 1)&quot; # to install the exact version of bundler we need
+bundle # this installs the needed libraries
+bundle exec fastlane match development # This is so you can run builds directly to devices from your machine
+bundle exec fastlane match adhoc # this is so you can archive and build an adhoc release (to upload to firebase app distribution for example)
+</code></pre>
+<h1><a class="header" href="#unity" id="unity">Unity</a></h1>
+<p>In this section we will talk about the development environment around Unity</p>
+<h1><a class="header" href="#unity-hub" id="unity-hub">Unity Hub</a></h1>
+<p>We use <a href="https://unity3d.com/get-unity/download">Unity Hub</a> to install the versions we need - some of our projects are not on the latest LTS versions of unity - you can download these from the archives of unity through unity hub</p>
+<h1><a class="header" href="#xcode" id="xcode">Xcode</a></h1>
+<p>We should use xcode to be able to build our iOS app.</p>
+<ul>
+<li>Install Xcode from the App Store - Its important to notice that you should not update/upgrade Xcode without consensus from the team as sometimes there are breaking changes.</li>
+<li>After you install Xcode, be sure to have the xcode tools, in a terminal window:</li>
+</ul>
+<pre><code class="language-bash">xcode-select --install
+</code></pre>
+<h1><a class="header" href="#vscode" id="vscode">VSCode</a></h1>
+<p>We use <a href="https://code.visualstudio.com/">VSCode</a> as our primary code editor for unity.</p>
+<ul>
+<li>Be sure to install the C# for Visual Studio Code(omnisharp) from the VSCode extensions tab.</li>
+<li>Be sure to have our omnisharp C# code styling file:</li>
+</ul>
+<pre><code class="language-bash">cd ~
+mkdir .omnisharp # Don't forget the dot in .omnisharp
+touch .omnisharp/omnisharp.json
+</code></pre>
+<p>And copy this code to it:</p>
+<pre><code>{
+  &quot;FormattingOptions&quot;: {
+    &quot;NewLinesForBracesInTypes&quot;: false,
+    &quot;NewLinesForBracesInMethods&quot;: false,
+    &quot;NewLinesForBracesInProperties&quot;: false,
+    &quot;NewLinesForBracesInAccessors&quot;: false,
+    &quot;NewLinesForBracesInAnonymousMethods&quot;: false,
+    &quot;NewLinesForBracesInControlBlocks&quot;: false,
+    &quot;NewLinesForBracesInAnonymousTypes&quot;: false,
+    &quot;NewLinesForBracesInObjectCollectionArrayInitializers&quot;: false,
+    &quot;NewLinesForBracesInLambdaExpressionBody&quot;: false,
+    &quot;NewLineForElse&quot;: false,
+    &quot;NewLineForCatch&quot;: false,
+    &quot;NewLineForFinally&quot;: false,
+    &quot;NewLineForMembersInObjectInit&quot;: false,
+    &quot;NewLineForMembersInAnonymousTypes&quot;: false,
+    &quot;NewLineForClausesInQuery&quot;: false,
+    &quot;UseTabs&quot;: false,
+    &quot;TabSize&quot;: 2,
+    &quot;IndentationSize&quot;: 2
+  }
+}
 </code></pre>
 
                     </main>
@@ -239,21 +332,6 @@ To install:</p>
 
         </div>
 
-        
-        <!-- Livereload script (if served using the cli tool) -->
-        <script type="text/javascript">
-            var socket = new WebSocket("ws://localhost:3001");
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload(true); // force reload from server (not from cache)
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
         
 
         

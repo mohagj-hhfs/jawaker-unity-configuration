@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Brew - Jawaker Unity Configuration</title>
+        <title>Fastlane - Jawaker Unity Configuration</title>
         
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -81,7 +81,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div id="sidebar-scrollbox" class="sidebar-scrollbox">
-                <ol class="chapter"><li class="expanded "><a href="../index.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li class="expanded "><a href="../cli/index.html"><strong aria-hidden="true">2.</strong> CLI Tools</a></li><li><ol class="section"><li class="expanded "><a href="../cli/terminal.html"><strong aria-hidden="true">2.1.</strong> Terminal App</a></li><li class="expanded "><a href="../cli/git.html"><strong aria-hidden="true">2.2.</strong> Git &amp; Github</a></li><li class="expanded "><a href="../cli/brew.html" class="active"><strong aria-hidden="true">2.3.</strong> Brew</a></li><li class="expanded "><a href="../cli/ruby.html"><strong aria-hidden="true">2.4.</strong> Ruby &amp; Rbenv</a></li><li class="expanded "><a href="../cli/lfs.html"><strong aria-hidden="true">2.5.</strong> Git LFS</a></li><li class="expanded "><a href="../cli/android.html"><strong aria-hidden="true">2.6.</strong> Android</a></li><li class="expanded "><a href="../cli/fastlane.html"><strong aria-hidden="true">2.7.</strong> Fastlane</a></li></ol></li><li class="expanded "><a href="../unity/index.html"><strong aria-hidden="true">3.</strong> Unity</a></li><li><ol class="section"><li class="expanded "><a href="../unity/hub.html"><strong aria-hidden="true">3.1.</strong> Unity Hub</a></li><li class="expanded "><a href="../unity/xcode.html"><strong aria-hidden="true">3.2.</strong> Xcode</a></li><li class="expanded "><a href="../unity/vscode.html"><strong aria-hidden="true">3.3.</strong> VSCode</a></li></ol></li></ol>
+                <ol class="chapter"><li class="expanded "><a href="../index.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li class="expanded "><a href="../cli/index.html"><strong aria-hidden="true">2.</strong> CLI Tools</a></li><li><ol class="section"><li class="expanded "><a href="../cli/terminal.html"><strong aria-hidden="true">2.1.</strong> Terminal App</a></li><li class="expanded "><a href="../cli/git.html"><strong aria-hidden="true">2.2.</strong> Git &amp; Github</a></li><li class="expanded "><a href="../cli/brew.html"><strong aria-hidden="true">2.3.</strong> Brew</a></li><li class="expanded "><a href="../cli/ruby.html"><strong aria-hidden="true">2.4.</strong> Ruby &amp; Rbenv</a></li><li class="expanded "><a href="../cli/lfs.html"><strong aria-hidden="true">2.5.</strong> Git LFS</a></li><li class="expanded "><a href="../cli/android.html"><strong aria-hidden="true">2.6.</strong> Android</a></li><li class="expanded "><a href="../cli/fastlane.html" class="active"><strong aria-hidden="true">2.7.</strong> Fastlane</a></li></ol></li><li class="expanded "><a href="../unity/index.html"><strong aria-hidden="true">3.</strong> Unity</a></li><li><ol class="section"><li class="expanded "><a href="../unity/hub.html"><strong aria-hidden="true">3.1.</strong> Unity Hub</a></li><li class="expanded "><a href="../unity/xcode.html"><strong aria-hidden="true">3.2.</strong> Xcode</a></li><li class="expanded "><a href="../unity/vscode.html"><strong aria-hidden="true">3.3.</strong> VSCode</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -148,9 +148,20 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#homebrew" id="homebrew">Homebrew</a></h1>
-<p><a href="https://brew.sh/">Homebrew</a> is a package manager for MacOS - it will help us in managing many of the other cli tools we're going to use</p>
-<pre><code class="language-bash">/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)&quot;
+                        <ul>
+<li>Ignore this section if you're not going to export iOS builds for now</li>
+</ul>
+<h1><a class="header" href="#fastlane" id="fastlane">Fastlane</a></h1>
+<p><a href="https://fastlane.tools/">Fastlane</a> is a set of tools with the goal of automating all processes related to app development</p>
+<p>For now we only use <a href="https://docs.fastlane.tools/actions/match/">Match</a> which deals with iOS profiles and certificates.</p>
+<p>The fastlane/match configuration is already present the in repository you're working on, but before you can use it we have to install some stuff:
+Make sure you have ruby/rbenv configuration done correctly</p>
+<pre><code class="language-bash">cd path/to/repo
+rbenv install #make sure the ruby version required is installed
+gem install bundler -v &quot;$(grep -A 1 &quot;BUNDLED WITH&quot; Gemfile.lock | tail -n 1)&quot; # to install the exact version of bundler we need
+bundle # this installs the needed libraries
+bundle exec fastlane match development # This is so you can run builds directly to devices from your machine
+bundle exec fastlane match adhoc # this is so you can archive and build an adhoc release (to upload to firebase app distribution for example)
 </code></pre>
 
                     </main>
@@ -158,13 +169,13 @@
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="../cli/git.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../cli/android.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="../cli/ruby.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../unity/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -176,13 +187,13 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="../cli/git.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a href="../cli/android.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a href="../cli/ruby.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a href="../unity/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 

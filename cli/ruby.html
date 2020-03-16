@@ -81,7 +81,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div id="sidebar-scrollbox" class="sidebar-scrollbox">
-                <ol class="chapter"><li class="expanded "><a href="../index.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li class="expanded "><a href="../cli/index.html"><strong aria-hidden="true">2.</strong> CLI Tools</a></li><li><ol class="section"><li class="expanded "><a href="../cli/TERMINAL.html"><strong aria-hidden="true">2.1.</strong> Terminal App</a></li><li class="expanded "><a href="../cli/GIT.html"><strong aria-hidden="true">2.2.</strong> Git &amp; Github</a></li><li class="expanded "><a href="../cli/brew.html"><strong aria-hidden="true">2.3.</strong> Brew</a></li><li class="expanded "><a href="../cli/ruby.html" class="active"><strong aria-hidden="true">2.4.</strong> Ruby &amp; Rbenv</a></li><li class="expanded "><a href="../cli/lfs.html"><strong aria-hidden="true">2.5.</strong> Git LFS</a></li><li class="expanded "><a href="../cli/android.html"><strong aria-hidden="true">2.6.</strong> Android</a></li></ol></li></ol>
+                <ol class="chapter"><li class="expanded "><a href="../index.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li class="expanded "><a href="../cli/index.html"><strong aria-hidden="true">2.</strong> CLI Tools</a></li><li><ol class="section"><li class="expanded "><a href="../cli/terminal.html"><strong aria-hidden="true">2.1.</strong> Terminal App</a></li><li class="expanded "><a href="../cli/git.html"><strong aria-hidden="true">2.2.</strong> Git &amp; Github</a></li><li class="expanded "><a href="../cli/brew.html"><strong aria-hidden="true">2.3.</strong> Brew</a></li><li class="expanded "><a href="../cli/ruby.html" class="active"><strong aria-hidden="true">2.4.</strong> Ruby &amp; Rbenv</a></li><li class="expanded "><a href="../cli/lfs.html"><strong aria-hidden="true">2.5.</strong> Git LFS</a></li><li class="expanded "><a href="../cli/android.html"><strong aria-hidden="true">2.6.</strong> Android</a></li><li class="expanded "><a href="../cli/fastlane.html"><strong aria-hidden="true">2.7.</strong> Fastlane</a></li></ol></li><li class="expanded "><a href="../unity/index.html"><strong aria-hidden="true">3.</strong> Unity</a></li><li><ol class="section"><li class="expanded "><a href="../unity/hub.html"><strong aria-hidden="true">3.1.</strong> Unity Hub</a></li><li class="expanded "><a href="../unity/xcode.html"><strong aria-hidden="true">3.2.</strong> Xcode</a></li><li class="expanded "><a href="../unity/vscode.html"><strong aria-hidden="true">3.3.</strong> VSCode</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -148,7 +148,10 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#ruby" id="ruby">Ruby</a></h1>
+                        <ul>
+<li>Ignore this section if you're not going to export iOS builds for now</li>
+</ul>
+<h1><a class="header" href="#ruby" id="ruby">Ruby</a></h1>
 <p>Ruby is general purpose scripting language. Although we're going to do any development using ruby, we still need it to power some of the tools we'll be using along Unity</p>
 <h1><a class="header" href="#rbenv" id="rbenv">Rbenv</a></h1>
 <p>Rbenv is a tool that makes managing ruby versions between projects easy, and saves lots of the overhead with dealing with all its ecosystem. 
@@ -203,21 +206,6 @@ touch .bash_profile
 
         </div>
 
-        
-        <!-- Livereload script (if served using the cli tool) -->
-        <script type="text/javascript">
-            var socket = new WebSocket("ws://localhost:3001");
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload(true); // force reload from server (not from cache)
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
         
 
         

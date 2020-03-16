@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Brew - Jawaker Unity Configuration</title>
+        <title>VSCode - Jawaker Unity Configuration</title>
         
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -81,7 +81,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div id="sidebar-scrollbox" class="sidebar-scrollbox">
-                <ol class="chapter"><li class="expanded "><a href="../index.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li class="expanded "><a href="../cli/index.html"><strong aria-hidden="true">2.</strong> CLI Tools</a></li><li><ol class="section"><li class="expanded "><a href="../cli/terminal.html"><strong aria-hidden="true">2.1.</strong> Terminal App</a></li><li class="expanded "><a href="../cli/git.html"><strong aria-hidden="true">2.2.</strong> Git &amp; Github</a></li><li class="expanded "><a href="../cli/brew.html" class="active"><strong aria-hidden="true">2.3.</strong> Brew</a></li><li class="expanded "><a href="../cli/ruby.html"><strong aria-hidden="true">2.4.</strong> Ruby &amp; Rbenv</a></li><li class="expanded "><a href="../cli/lfs.html"><strong aria-hidden="true">2.5.</strong> Git LFS</a></li><li class="expanded "><a href="../cli/android.html"><strong aria-hidden="true">2.6.</strong> Android</a></li><li class="expanded "><a href="../cli/fastlane.html"><strong aria-hidden="true">2.7.</strong> Fastlane</a></li></ol></li><li class="expanded "><a href="../unity/index.html"><strong aria-hidden="true">3.</strong> Unity</a></li><li><ol class="section"><li class="expanded "><a href="../unity/hub.html"><strong aria-hidden="true">3.1.</strong> Unity Hub</a></li><li class="expanded "><a href="../unity/xcode.html"><strong aria-hidden="true">3.2.</strong> Xcode</a></li><li class="expanded "><a href="../unity/vscode.html"><strong aria-hidden="true">3.3.</strong> VSCode</a></li></ol></li></ol>
+                <ol class="chapter"><li class="expanded "><a href="../index.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li class="expanded "><a href="../cli/index.html"><strong aria-hidden="true">2.</strong> CLI Tools</a></li><li><ol class="section"><li class="expanded "><a href="../cli/terminal.html"><strong aria-hidden="true">2.1.</strong> Terminal App</a></li><li class="expanded "><a href="../cli/git.html"><strong aria-hidden="true">2.2.</strong> Git &amp; Github</a></li><li class="expanded "><a href="../cli/brew.html"><strong aria-hidden="true">2.3.</strong> Brew</a></li><li class="expanded "><a href="../cli/ruby.html"><strong aria-hidden="true">2.4.</strong> Ruby &amp; Rbenv</a></li><li class="expanded "><a href="../cli/lfs.html"><strong aria-hidden="true">2.5.</strong> Git LFS</a></li><li class="expanded "><a href="../cli/android.html"><strong aria-hidden="true">2.6.</strong> Android</a></li><li class="expanded "><a href="../cli/fastlane.html"><strong aria-hidden="true">2.7.</strong> Fastlane</a></li></ol></li><li class="expanded "><a href="../unity/index.html"><strong aria-hidden="true">3.</strong> Unity</a></li><li><ol class="section"><li class="expanded "><a href="../unity/hub.html"><strong aria-hidden="true">3.1.</strong> Unity Hub</a></li><li class="expanded "><a href="../unity/xcode.html"><strong aria-hidden="true">3.2.</strong> Xcode</a></li><li class="expanded "><a href="../unity/vscode.html" class="active"><strong aria-hidden="true">3.3.</strong> VSCode</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -148,9 +148,39 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#homebrew" id="homebrew">Homebrew</a></h1>
-<p><a href="https://brew.sh/">Homebrew</a> is a package manager for MacOS - it will help us in managing many of the other cli tools we're going to use</p>
-<pre><code class="language-bash">/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)&quot;
+                        <h1><a class="header" href="#vscode" id="vscode">VSCode</a></h1>
+<p>We use <a href="https://code.visualstudio.com/">VSCode</a> as our primary code editor for unity.</p>
+<ul>
+<li>Be sure to install the C# for Visual Studio Code(omnisharp) from the VSCode extensions tab.</li>
+<li>Be sure to have our omnisharp C# code styling file:</li>
+</ul>
+<pre><code class="language-bash">cd ~
+mkdir .omnisharp # Don't forget the dot in .omnisharp
+touch .omnisharp/omnisharp.json
+</code></pre>
+<p>And copy this code to it:</p>
+<pre><code>{
+  &quot;FormattingOptions&quot;: {
+    &quot;NewLinesForBracesInTypes&quot;: false,
+    &quot;NewLinesForBracesInMethods&quot;: false,
+    &quot;NewLinesForBracesInProperties&quot;: false,
+    &quot;NewLinesForBracesInAccessors&quot;: false,
+    &quot;NewLinesForBracesInAnonymousMethods&quot;: false,
+    &quot;NewLinesForBracesInControlBlocks&quot;: false,
+    &quot;NewLinesForBracesInAnonymousTypes&quot;: false,
+    &quot;NewLinesForBracesInObjectCollectionArrayInitializers&quot;: false,
+    &quot;NewLinesForBracesInLambdaExpressionBody&quot;: false,
+    &quot;NewLineForElse&quot;: false,
+    &quot;NewLineForCatch&quot;: false,
+    &quot;NewLineForFinally&quot;: false,
+    &quot;NewLineForMembersInObjectInit&quot;: false,
+    &quot;NewLineForMembersInAnonymousTypes&quot;: false,
+    &quot;NewLineForClausesInQuery&quot;: false,
+    &quot;UseTabs&quot;: false,
+    &quot;TabSize&quot;: 2,
+    &quot;IndentationSize&quot;: 2
+  }
+}
 </code></pre>
 
                     </main>
@@ -158,15 +188,11 @@
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="../cli/git.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../unity/xcode.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
-                        
-                            <a rel="next" href="../cli/ruby.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
                         
 
                         <div style="clear: both"></div>
@@ -176,15 +202,11 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="../cli/git.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a href="../unity/xcode.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
-                
-                    <a href="../cli/ruby.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
-                    </a>
                 
             </nav>
 
