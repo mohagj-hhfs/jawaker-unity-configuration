@@ -21,3 +21,4 @@ reported vulnerability, what to expect if the vulnerability is accepted or
 declined, etc.
 #3 jawaker
 #6 Jawaker.com
+#7 #8 
